@@ -1,0 +1,345 @@
+html,
+body {
+  background: var(--default);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* GAMING GRID */
+#game {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 600px;
+}
+:root {
+  --default: #121213;
+  --empty: #3a3a3c;
+  --wrong: #b59f3b;
+  --right: #538d4e;
+}
+.grid {
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  grid-template-columns: repeat(5, auto);
+}
+.box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--empty);
+  margin: 4px;
+  color: white;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+}
+.box.empty {
+  background: var(--empty);
+}
+.box.wrong {
+  background: var(--wrong);
+}
+.box.right {
+  background: var(--right);
+}
+/* GAMING GRID - END */
+
+#enter-button {
+  background-color: #5ac263;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px; /* rounded corners */
+}
+
+#enter-button:hover {
+  background-color: #4faa57; /* darker blue color on hover */
+  cursor: pointer;
+}
+
+/* KEYBOARD PART */
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.key {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--empty);
+  margin: 4px;
+  color: white;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.key.empty {
+  background: var(--empty);
+}
+.key.wrong {
+  background: var(--wrong);
+}
+.key.right {
+  background: var(--right);
+}
+
+.key:nth-child(-n + 13) {
+  margin-top: 15px;
+  margin-bottom: 14px;
+}
+
+.key:nth-child(n + 14):nth-child(-n + 26) {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.button-container {
+  text-align: center;
+}
+/* KEYBOARD PART - END */
+
+/* NAVBAR PART */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 8vh;
+  background: #538d4e;
+  color: #3a3a3c;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-logo {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bolder;
+}
+
+nav .search-box {
+  display: flex;
+  margin: auto 0;
+  height: 35px;
+  line-height: 35px;
+}
+
+nav .search-box input {
+  border: none;
+  outline: none;
+  background: #eee;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 20;
+  width: 250px;
+}
+
+nav .search-box span {
+  box-sizing: border-box;
+  color: #121213;
+  font-size: 20px;
+  background: #fff;
+  height: 100%;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+
+nav .search-box span:hover {
+  color: #fff;
+}
+
+nav .search-box span::after {
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: #b59f3b;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+nav .search-box span:hover::after {
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.nav-links a {
+  color: #eee;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger .line1,
+.burger .line2,
+.burger .line3 {
+  width: 24px;
+  height: 3px;
+  background-color: #eee;
+}
+
+.burger .line2 {
+  margin: 3px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .burger {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 60%;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    background: #538d4e;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: 0.5s ease;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+}
+
+.nav-active {
+  transform: translateX(0);
+}
+
+@keyframes linksFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* I couldnt make this burger menu work:( */
+/* NAVBAR PART - END */
+
+/* CARD COMPONENT */
+
+.card-slider-container {
+  position: relative;
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card-slider {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card {
+  width: 100vh;
+  height: 700px;
+  margin-right: 300px;
+  margin-left: 350px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: #b59f3b;
+  font-size: 10rem;
+  cursor: pointer;
+}
+
+.slider-button-left {
+  left: 0;
+}
+
+.slider-button-right {
+  right: 0;
+}
+
+/* CARD - END */
+
+.alert {
+  padding: 20px;
+  width: 300px;
+  background-color: #4caf50;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.success {
+  background-color: #4caf50;
+  text-align: center;
+  font-weight: bolder;
+  color: #121213;
+  font-size: 40px;
+}
+.danger {
+  background-color: #d71313;
+  text-align: center;
+  font-weight: bolder;
+  color: #121213;
+  font-size: 40px;
+}
+
+#title-info{
+  color: #121213;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: bolder;
+  text-align: center;
+  
+}
